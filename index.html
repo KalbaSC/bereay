@@ -243,18 +243,25 @@ footer {
 
   body {
     background:
-      linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.35)),
-      url('./fitness_bg.png.png?v=4') 42% top / auto 100vh no-repeat !important;
+     linear-gradient(
+rgba(0,0,0,.05),
+rgba(0,0,0,.20)
+),
+      url('./fitness_bg.png.png?v=4') 35% center / cover no-repeat !important;
     background-color: #000 !important;
     background-attachment: scroll !important;
   }
 
-  .container {
-    background: rgba(0, 0, 0, .68);
-    border: 1px solid rgba(255, 212, 0, .55);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
+ .container{
+    width:88%;
+    max-width:420px;
+    padding:18px;
+    border-radius:18px;
+    margin:35px auto;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+}
 
   header {
     min-height: 78px;
