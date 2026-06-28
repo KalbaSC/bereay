@@ -18,232 +18,353 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
       font-family: 'NotoKufiArabic', Arial, sans-serif;
       color: white;
       background:
-        linear-gradient(rgba(5, 10, 11, 0.70), rgba(5, 10, 11, 0.92)),
-        url('fitness_bg.jpg') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
-      overflow-x: hidden;
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.92)),
+        url('fitness_bg.jpg') center/cover fixed no-repeat;
+      min-height: 100vh;
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -1;
-      pointer-events: none;
       background:
-        radial-gradient(circle at 18% 22%, rgba(244, 231, 51, 0.22), transparent 18%),
-        radial-gradient(circle at 84% 18%, rgba(244, 231, 51, 0.12), transparent 22%),
-        linear-gradient(120deg, rgba(0,0,0,0.86) 0%, rgba(13,22,23,0.82) 45%, rgba(0,0,0,0.94) 100%);
-    }
-
-    body::after {
-      content: "خلك جاهز  •  لياقة ومستقبل  •  KALBA";
-      position: fixed;
-      left: -80px;
-      bottom: 80px;
+        radial-gradient(circle at 15% 20%, rgba(244,231,51,.25), transparent 25%),
+        radial-gradient(circle at 85% 70%, rgba(244,231,51,.18), transparent 28%);
+      pointer-events: none;
       z-index: -1;
-      color: rgba(244, 231, 51, 0.06);
-      font-size: 56px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      transform: rotate(-12deg);
-      white-space: nowrap;
     }
 
-    .header-container {
-      background: linear-gradient(90deg, #050505, #172020, #050505);
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: rgba(10,10,10,.92);
       border-bottom: 3px solid #f4e733;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.45);
-    }
-
-    .header-right {
-      max-width: 1170px;
-      margin: auto;
+      padding: 18px 35px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 18px;
-      padding: 18px;
-      text-align: center;
+      justify-content: space-between;
+    }
+
+    .logos {
+      display: flex;
+      align-items: center;
+      gap: 22px;
     }
 
     .logo {
-      height: 65px;
+      height: 75px;
+      object-fit: contain;
     }
 
     .divider {
       width: 2px;
-      height: 60px;
+      height: 65px;
       background: #f4e733;
     }
 
-    .arabic-name {
-      font-weight: bold;
-      font-size: 20px;
+    .club-title {
+      text-align: left;
     }
 
-    .english-name {
+    .club-title h3 {
+      margin: 0;
+      font-size: 25px;
+      color: #fff;
+    }
+
+    .club-title p {
+      margin: 5px 0 0;
       color: #f4e733;
-      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 45px 20px 20px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 54px;
+      line-height: 1.3;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: #f4e733;
+      display: block;
+      font-size: 64px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin: 12px 0 25px;
+      color: #eee;
+      font-weight: bold;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .feature {
+      min-width: 130px;
+      padding: 15px 18px;
+      border-left: 1px solid rgba(244,231,51,.7);
+      border-right: 1px solid rgba(244,231,51,.7);
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .feature .icon {
+      display: block;
+      color: #f4e733;
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
     }
 
     .container {
-      max-width: 600px;
-      background: linear-gradient(180deg, rgba(17, 25, 25, 0.96), rgba(4, 4, 4, 0.97));
+      width: 100%;
+      max-width: 720px;
+      background: rgba(5, 8, 9, 0.88);
       border: 3px solid #f4e733;
-      border-radius: 18px;
-      padding: 25px;
-      margin: 40px auto;
-      box-shadow: 0 20px 55px rgba(0,0,0,0.55), 0 0 28px rgba(244, 231, 51, 0.14);
-      backdrop-filter: blur(3px);
+      border-radius: 22px;
+      padding: 35px;
+      box-shadow: 0 0 35px rgba(0,0,0,.75);
+      backdrop-filter: blur(4px);
     }
 
     h2 {
+      margin: 0 0 12px;
       text-align: center;
+      font-size: 34px;
+      color: white;
+    }
+
+    h2 span {
       color: #f4e733;
-      margin-bottom: 10px;
-      font-size: 28px;
-      text-shadow: 0 3px 12px rgba(0,0,0,0.7);
     }
 
     .subtitle {
       text-align: center;
-      font-size: 14px;
-      margin-bottom: 25px;
-      color: #111;
-      background: #f4e733;
-      border-radius: 999px;
-      padding: 9px 14px;
-      font-weight: bold;
+      color: #f4e733;
+      margin-bottom: 30px;
+      font-size: 15px;
     }
 
     label {
       display: block;
-      margin-top: 15px;
+      margin-top: 18px;
       font-weight: bold;
+      font-size: 16px;
     }
 
     input {
       width: 100%;
-      padding: 11px;
-      margin-top: 6px;
-      border-radius: 8px;
-      border: none;
-      font-size: 15px;
+      padding: 15px;
+      margin-top: 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(0,0,0,.55);
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #f4e733;
+      box-shadow: 0 0 10px rgba(244,231,51,.35);
+    }
+
+    input::placeholder {
+      color: #999;
     }
 
     .checkbox-box {
-      margin-top: 20px;
-      background: #000;
-      border: 1px solid #f4e733;
-      border-radius: 10px;
-      padding: 15px;
-      line-height: 1.8;
+      margin-top: 24px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(244,231,51,.8);
+      border-radius: 12px;
+      padding: 18px;
+      line-height: 2;
     }
 
     .checkbox-box label {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 12px;
       margin: 0;
       font-weight: normal;
     }
 
     .checkbox-box input {
-      width: auto;
-      margin-top: 7px;
-      transform: scale(1.3);
+      width: 22px;
+      height: 22px;
+      margin-top: 8px;
+      accent-color: #f4e733;
     }
 
     button {
       width: 100%;
-      margin-top: 25px;
-      padding: 12px;
+      margin-top: 28px;
+      padding: 16px;
       border: none;
-      border-radius: 10px;
-      background: #f4e733;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #f4e733, #ffcc00);
       color: black;
-      font-size: 17px;
-      font-weight: bold;
+      font-size: 25px;
+      font-weight: 900;
       cursor: pointer;
+      transition: .2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(244,231,51,.35);
     }
 
     button:disabled {
-      opacity: 0.6;
+      opacity: .6;
       cursor: not-allowed;
+      transform: none;
     }
 
     #statusMessage {
       display: none;
       text-align: center;
-      margin-top: 20px;
+      margin-top: 22px;
+      padding: 14px;
+      border: 1px solid rgba(244,231,51,.7);
+      border-radius: 10px;
       font-weight: bold;
       color: #f4e733;
+      background: rgba(0,0,0,.45);
     }
 
     footer {
-      background: #111;
+      background: rgba(10,10,10,.92);
       border-top: 3px solid #f4e733;
       text-align: center;
       padding: 18px;
-      font-size: 13px;
-      margin-top: 40px;
+      font-size: 14px;
+      color: #ddd;
     }
 
     @media (max-width: 768px) {
-      .container {
-        width: 90%;
-        margin: 25px auto;
+      header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .club-title {
+        text-align: center;
       }
 
       .logo {
-        height: 50px;
+        height: 55px;
       }
 
-      .arabic-name {
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero h1 span {
+        font-size: 42px;
+      }
+
+      .hero p {
         font-size: 15px;
       }
 
-      .english-name {
-        font-size: 11px;
+      .container {
+        padding: 24px;
+      }
+
+      h2 {
+        font-size: 25px;
       }
     }
   </style>
 </head>
 
 <body>
+<div class="page">
 
-<header class="header-container">
-  <div class="header-right">
-    <img src="Picture3.png" class="logo" alt="شعار مجلس الشارقة الرياضي">
-    <div class="divider"></div>
+<header>
+  <div class="logos">
     <img src="logo.png" class="logo" alt="شعار نادي كلباء">
-    <div>
-      <div class="arabic-name">نادي كلباء الرياضي الثقافي</div>
-      <div class="english-name">KALBA SPORTS & CULTURAL CLUB</div>
-    </div>
+    <div class="divider"></div>
+    <img src="Picture3.png" class="logo" alt="شعار مجلس الشارقة الرياضي">
+  </div>
+
+  <div class="club-title">
+    <h3>نادي كلباء الرياضي الثقافي</h3>
+    <p>KALBA SPORTS & CULTURAL CLUB</p>
   </div>
 </header>
 
+<section class="hero">
+  <h1>
+    خلك جاهز ...
+    <span>لياقة ومستقبل</span>
+  </h1>
+  <p>مبادرة مجتمعية لخريجي الثانوية العامة وشباب مدينة كلباء</p>
+
+  <div class="features">
+    <div class="feature">
+      <span class="icon">🏃</span>
+      لياقة بدنية<br>وصحة عامة
+    </div>
+    <div class="feature">
+      <span class="icon">🎯</span>
+      تعزيز الثقة<br>والانضباط
+    </div>
+    <div class="feature">
+      <span class="icon">🤝</span>
+      تنمية المهارات<br>والعمل الجماعي
+    </div>
+    <div class="feature">
+      <span class="icon">🏆</span>
+      مستقبل<br>أكثر جاهزية
+    </div>
+  </div>
+</section>
+
 <main>
   <div class="container">
-    <h2>التسجيل في مبادرة خلك جاهز</h2>
-    <div class="subtitle">لياقة ومستقبل - لخريجي الثانوية العامة وشباب مدينة كلباء</div>
+    <h2>التسجيل في مبادرة <span>خلك جاهز</span></h2>
+    <div class="subtitle">يرجى تعبئة البيانات التالية بدقة</div>
 
     <form id="fitnessForm">
       <label>
-        الاسم الكامل:
-        <input type="text" id="name" required autocomplete="off">
+        الاسم الكامل ثلاثي:
+        <input type="text" id="name" required placeholder="الاسم الأول الاسم الأوسط اسم العائلة" autocomplete="off">
       </label>
 
       <label>
         العمر:
-        <input type="number" id="age" required min="15" max="60" autocomplete="off">
+        <input type="number" id="age" required min="15" max="60" placeholder="أدخل عمرك" autocomplete="off">
       </label>
 
       <label>
@@ -262,7 +383,7 @@
         </label>
       </div>
 
-      <button type="submit" id="submitBtn">تسجيل</button>
+      <button type="submit" id="submitBtn">🏃 تسجيل</button>
     </form>
 
     <div id="statusMessage"></div>
@@ -273,6 +394,8 @@
   © 2025 نادي كلباء الرياضي الثقافي - جميع الحقوق محفوظة
 </footer>
 
+</div>
+
 <script>
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0jkfUWN5uy_ayR47QpE0VhqW_K9yoL7Jt9MHMUBgwJX7_Tm4WWfOfbsvCFKCnXa_p/exec";
 
@@ -280,25 +403,26 @@
     e.preventDefault();
 
     let name = document.getElementById("name").value.trim().replace(/\s+/g, " ");
-const age = document.getElementById("age").value.trim();
-const emiratesId = document.getElementById("emiratesId").value.replace(/\D/g, "").trim();
-const commitment = document.getElementById("fitnessCommitment").checked;
+    const age = document.getElementById("age").value.trim();
+    const emiratesId = document.getElementById("emiratesId").value.replace(/\D/g, "").trim();
+    const commitment = document.getElementById("fitnessCommitment").checked;
 
-document.getElementById("name").value = name;
+    document.getElementById("name").value = name;
 
-const nameParts = name.split(" ");
+    const nameParts = name.split(" ");
 
-if (nameParts.length < 3) {
-  alert("الرجاء إدخال الاسم الثلاثي على الأقل.");
-  return;
-}
+    if (nameParts.length < 3) {
+      alert("الرجاء إدخال الاسم الثلاثي على الأقل.");
+      return;
+    }
 
-const arabicNameRegex = /^[ء-ي\s]+$/;
+    const arabicNameRegex = /^[ء-ي\s]+$/;
 
-if (!arabicNameRegex.test(name)) {
-  alert("الاسم يجب أن يكون باللغة العربية فقط وبدون أرقام أو رموز.");
-  return;
-}
+    if (!arabicNameRegex.test(name)) {
+      alert("الاسم يجب أن يكون باللغة العربية فقط وبدون أرقام أو رموز.");
+      return;
+    }
+
     const statusMessage = document.getElementById("statusMessage");
     const submitBtn = document.getElementById("submitBtn");
 
@@ -349,7 +473,7 @@ if (!arabicNameRegex.test(name)) {
     }
 
     submitBtn.disabled = false;
-    submitBtn.innerText = "تسجيل";
+    submitBtn.innerText = "🏃 تسجيل";
   });
 </script>
 
