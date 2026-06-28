@@ -416,6 +416,7 @@ document.getElementById("fitnessForm").addEventListener("submit", async function
 
   let name = document.getElementById("name").value.trim().replace(/\s+/g, " ");
   const age = document.getElementById("age").value.trim();
+const phone = document.getElementById("phone").value.replace(/\D/g, "").trim();
   const emiratesId = document.getElementById("emiratesId").value.replace(/\D/g, "").trim();
   const commitment = document.getElementById("fitnessCommitment").checked;
 
@@ -434,10 +435,11 @@ document.getElementById("fitnessForm").addEventListener("submit", async function
     alert("الاسم يجب أن يكون باللغة العربية فقط وبدون أرقام أو رموز.");
     return;
   }
-if (!/^05\d{8}$/.test(phone)) {
-    alert("يرجى إدخال رقم هاتف إماراتي صحيح.");
-    return;
+  if (!/^05\d{8}$/.test(phone)) {
+  alert("يرجى إدخال رقم هاتف إماراتي صحيح.");
+  return;
 }
+    
   if (!/^784\d{12}$/.test(emiratesId)) {
     alert("رقم الهوية غير صحيح. يجب أن يبدأ بـ 784 ويتكون من 15 رقمًا.");
     return;
