@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل مبادرة خلك جاهز</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    @font-face {
+      font-family: 'NotoKufiArabic';
+      src: url('NotoKufiArabic.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'NotoKufiArabic', Arial, sans-serif;
+      background: url('black_and_yellow_grunge_background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .header-container {
+      background: #111;
+      border-bottom: 3px solid #f4e733;
+    }
+
+    .header-right {
+      max-width: 1170px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .logo {
+      height: 65px;
+    }
+
+    .divider {
+      width: 2px;
+      height: 60px;
+      background: #f4e733;
+    }
+
+    .arabic-name {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .english-name {
+      color: #f4e733;
+      font-size: 13px;
+    }
+
+    .container {
+      max-width: 600px;
+      background: rgba(17, 17, 17, 0.95);
+      border: 3px solid #f4e733;
+      border-radius: 16px;
+      padding: 25px;
+      margin: 40px auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #f4e733;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 25px;
+      color: #ddd;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 11px;
+      margin-top: 6px;
+      border-radius: 8px;
+      border: none;
+      font-size: 15px;
+    }
+
+    .checkbox-box {
+      margin-top: 20px;
+      background: #000;
+      border: 1px solid #f4e733;
+      border-radius: 10px;
+      padding: 15px;
+      line-height: 1.8;
+    }
+
+    .checkbox-box label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 0;
+      font-weight: normal;
+    }
+
+    .checkbox-box input {
+      width: auto;
+      margin-top: 7px;
+      transform: scale(1.3);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #f4e733;
+      color: black;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #statusMessage {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #f4e733;
+    }
+
+    footer {
+      background: #111;
+      border-top: 3px solid #f4e733;
+      text-align: center;
+      padding: 18px;
+      font-size: 13px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+        margin: 25px auto;
+      }
+
+      .logo {
+        height: 50px;
+      }
+
+      .arabic-name {
+        font-size: 15px;
+      }
+
+      .english-name {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header-container">
+  <div class="header-right">
+    <img src="Picture3.png" class="logo" alt="شعار مجلس الشارقة الرياضي">
+    <div class="divider"></div>
+    <img src="logo.png" class="logo" alt="شعار نادي كلباء">
+    <div>
+      <div class="arabic-name">نادي كلباء الرياضي الثقافي</div>
+      <div class="english-name">KALBA SPORTS & CULTURAL CLUB</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h2>التسجيل في مبادرة خلك جاهز</h2>
+    <div class="subtitle">لياقة ومستقبل - لخريجي الثانوية العامة وشباب مدينة كلباء</div>
+
+    <form id="fitnessForm">
+      <label>
+        الاسم الكامل:
+        <input type="text" id="name" required autocomplete="off">
+      </label>
+
+      <label>
+        العمر:
+        <input type="number" id="age" required min="15" max="60" autocomplete="off">
+      </label>
+
+      <label>
+        رقم الهوية الإماراتية:
+        <input type="text" id="emiratesId" required maxlength="15" placeholder="784xxxxxxxxxxxx" autocomplete="off">
+      </label>
+
+      <div class="checkbox-box">
+        <label>
+          <input type="checkbox" id="fitnessCommitment" required>
+          <span>
+            أتعهد بأنني أتمتع باللياقة البدنية اللازمة للمشاركة في المبادرة،
+            وأتحمل المسؤولية عن صحة البيانات المدخلة، وأوافق على الالتزام
+            بجميع تعليمات وأنظمة المبادرة.
+          </span>
+        </label>
+      </div>
+
+      <button type="submit" id="submitBtn">تسجيل</button>
+    </form>
+
+    <div id="statusMessage"></div>
+  </div>
+</main>
+
+<footer>
+  © 2025 نادي كلباء الرياضي الثقافي - جميع الحقوق محفوظة
+</footer>
+
+<script>
+  const SCRIPT_URL = "PUT_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+  document.getElementById("fitnessForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const emiratesId = document.getElementById("emiratesId").value.replace(/\D/g, "").trim();
+    const commitment = document.getElementById("fitnessCommitment").checked;
+    const statusMessage = document.getElementById("statusMessage");
+    const submitBtn = document.getElementById("submitBtn");
+
+    if (!/^784\d{12}$/.test(emiratesId)) {
+      alert("رقم الهوية غير صحيح. يجب أن يبدأ بـ 784 ويتكون من 15 رقمًا.");
+      return;
+    }
+
+    if (!commitment) {
+      alert("يجب الموافقة على تعهد اللياقة البدنية قبل التسجيل.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "جاري التسجيل...";
+
+    try {
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        body: new URLSearchParams({
+          name: name,
+          age: age,
+          emiratesId: emiratesId,
+          fitnessCommitment: commitment ? "نعم" : "لا"
+        })
+      });
+
+      const result = await response.text();
+
+      if (result.includes("duplicate")) {
+        statusMessage.style.display = "block";
+        statusMessage.style.color = "red";
+        statusMessage.innerText = "❌ هذا الرقم مسجل مسبقاً.";
+      } else if (result.includes("success")) {
+        statusMessage.style.display = "block";
+        statusMessage.style.color = "#f4e733";
+        statusMessage.innerText = "✅ تم التسجيل بنجاح.";
+        document.getElementById("fitnessForm").reset();
+      } else {
+        throw new Error(result);
+      }
+
+    } catch (error) {
+      console.error(error);
+      statusMessage.style.display = "block";
+      statusMessage.style.color = "red";
+      statusMessage.innerText = "❌ حدث خطأ أثناء التسجيل.";
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.innerText = "تسجيل";
+  });
+</script>
+
+</body>
+</html>
