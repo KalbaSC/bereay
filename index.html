@@ -407,91 +407,168 @@ rgba(0,0,0,.20)
 </footer>
 
 </div>
-
 <script>
+
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0jkfUWN5uy_ayR47QpE0VhqW_K9yoL7Jt9MHMUBgwJX7_Tm4WWfOfbsvCFKCnXa_p/exec";
 
+function convertArabicNumbers(value) {
+
+  return value
+
+    .replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d))
+
+    .replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+
+}
+
 document.getElementById("fitnessForm").addEventListener("submit", async function(e) {
+
   e.preventDefault();
 
   let name = document.getElementById("name").value.trim().replace(/\s+/g, " ");
-  const age = document.getElementById("age").value.trim();
-const phone = document.getElementById("phone").value.replace(/\D/g, "").trim();
-  const emiratesId = document.getElementById("emiratesId").value.replace(/\D/g, "").trim();
+
+  const age = convertArabicNumbers(document.getElementById("age").value).replace(/\D/g, "").trim();
+
+  const phone = convertArabicNumbers(document.getElementById("phone").value).replace(/\D/g, "").trim();
+
+  const emiratesId = convertArabicNumbers(document.getElementById("emiratesId").value).replace(/\D/g, "").trim();
+
   const commitment = document.getElementById("fitnessCommitment").checked;
 
   document.getElementById("name").value = name;
 
+  document.getElementById("phone").value = phone;
+
+  document.getElementById("emiratesId").value = emiratesId;
+
   const nameParts = name.split(" ");
 
   if (nameParts.length < 3) {
+
     alert("الرجاء إدخال الاسم الثلاثي على الأقل.");
+
     return;
+
   }
 
   const arabicNameRegex = /^[ء-ي\s]+$/;
 
   if (!arabicNameRegex.test(name)) {
+
     alert("الاسم يجب أن يكون باللغة العربية فقط وبدون أرقام أو رموز.");
+
     return;
+
   }
+
   if (!/^05\d{8}$/.test(phone)) {
-  alert("يرجى إدخال رقم هاتف إماراتي صحيح.");
-  return;
-}
-    
-  if (!/^784\d{12}$/.test(emiratesId)) {
-    alert("رقم الهوية غير صحيح. يجب أن يبدأ بـ 784 ويتكون من 15 رقمًا.");
+
+    alert("يرجى إدخال رقم هاتف إماراتي صحيح.");
+
     return;
+
+  }
+
+  if (!/^784\d{12}$/.test(emiratesId)) {
+
+    alert("رقم الهوية غير صحيح. يجب أن يبدأ بـ 784 ويتكون من 15 رقمًا.");
+
+    return;
+
   }
 
   if (!commitment) {
+
     alert("يجب الموافقة على تعهد اللياقة البدنية قبل التسجيل.");
+
     return;
+
   }
 
   const statusMessage = document.getElementById("statusMessage");
+
   const submitBtn = document.getElementById("submitBtn");
 
   submitBtn.disabled = true;
+
   submitBtn.innerText = "جاري التسجيل...";
 
   try {
+
     const response = await fetch(SCRIPT_URL, {
+
       method: "POST",
+
       body: new URLSearchParams({
+
         name: name,
+
         age: age,
+
+        phone: phone,
+
         emiratesId: emiratesId,
+
         fitnessCommitment: commitment ? "نعم" : "لا"
+
       })
+
     });
 
     const result = await response.text();
 
     statusMessage.style.display = "block";
 
-    if (result.includes("duplicate")) {
+    if (result.includes("duplicate_phone")) {
+
       statusMessage.style.color = "red";
-      statusMessage.innerText = "❌ هذا الرقم مسجل مسبقاً.";
+
+      statusMessage.innerText = "❌ رقم الهاتف مسجل مسبقاً.";
+
+    } else if (result.includes("duplicate_id")) {
+
+      statusMessage.style.color = "red";
+
+      statusMessage.innerText = "❌ رقم الهوية مسجل مسبقاً.";
+
+    } else if (result.includes("duplicate")) {
+
+      statusMessage.style.color = "red";
+
+      statusMessage.innerText = "❌ هذا الشخص مسجل مسبقاً.";
+
     } else if (result.includes("success")) {
+
       statusMessage.style.color = "#ffd400";
+
       statusMessage.innerText = "✅ تم التسجيل بنجاح.";
+
       document.getElementById("fitnessForm").reset();
+
     } else {
+
       throw new Error(result);
+
     }
 
   } catch (error) {
+
     console.error(error);
+
     statusMessage.style.display = "block";
+
     statusMessage.style.color = "red";
+
     statusMessage.innerText = "❌ حدث خطأ أثناء التسجيل.";
+
   }
 
   submitBtn.disabled = false;
+
   submitBtn.innerText = "تسجيل";
+
 });
+
 </script>
 
 </body>
