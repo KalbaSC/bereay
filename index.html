@@ -368,7 +368,17 @@ rgba(0,0,0,.20)
         العمر
         <input type="number" id="age" required min="15" max="60" placeholder="العمر" autocomplete="off">
       </label>
-
+<label>
+    رقم الهاتف
+    <input
+        type="tel"
+        id="phone"
+        maxlength="10"
+        placeholder="05xxxxxxxx"
+        autocomplete="off"
+        required>
+</label>
+      
       <label>
         رقم الهوية الإماراتية
         <input type="text" id="emiratesId" required maxlength="15" placeholder="784xxxxxxxxxxxx" autocomplete="off" inputmode="numeric">
@@ -424,7 +434,10 @@ document.getElementById("fitnessForm").addEventListener("submit", async function
     alert("الاسم يجب أن يكون باللغة العربية فقط وبدون أرقام أو رموز.");
     return;
   }
-
+if (!/^05\d{8}$/.test(phone)) {
+    alert("يرجى إدخال رقم هاتف إماراتي صحيح.");
+    return;
+}
   if (!/^784\d{12}$/.test(emiratesId)) {
     alert("رقم الهوية غير صحيح. يجب أن يبدأ بـ 784 ويتكون من 15 رقمًا.");
     return;
