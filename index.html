@@ -239,10 +239,26 @@
   document.getElementById("fitnessForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const age = document.getElementById("age").value.trim();
-    const emiratesId = document.getElementById("emiratesId").value.replace(/\D/g, "").trim();
-    const commitment = document.getElementById("fitnessCommitment").checked;
+    let name = document.getElementById("name").value.trim().replace(/\s+/g, " ");
+const age = document.getElementById("age").value.trim();
+const emiratesId = document.getElementById("emiratesId").value.replace(/\D/g, "").trim();
+const commitment = document.getElementById("fitnessCommitment").checked;
+
+document.getElementById("name").value = name;
+
+const nameParts = name.split(" ");
+
+if (nameParts.length < 3) {
+  alert("الرجاء إدخال الاسم الثلاثي على الأقل.");
+  return;
+}
+
+const arabicNameRegex = /^[ء-ي\s]+$/;
+
+if (!arabicNameRegex.test(name)) {
+  alert("الاسم يجب أن يكون باللغة العربية فقط وبدون أرقام أو رموز.");
+  return;
+}
     const statusMessage = document.getElementById("statusMessage");
     const submitBtn = document.getElementById("submitBtn");
 
