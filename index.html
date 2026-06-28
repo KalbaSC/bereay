@@ -1,311 +1,346 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>تسجيل مبادرة خلك جاهز</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>تسجيل مبادرة خلك جاهز</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    @font-face {
-      font-family: 'NotoKufiArabic';
-      src: url('NotoKufiArabic.ttf') format('truetype');
-      font-display: swap;
-    }
+<style>
+@font-face {
+  font-family: 'NotoKufiArabic';
+  src: url('NotoKufiArabic.ttf') format('truetype');
+}
 
-    * {
-      box-sizing: border-box;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: 'NotoKufiArabic', Arial, sans-serif;
-      color: white;
-      background:
-        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.92)),
-        url('fitness_bg.jpg') center/cover fixed no-repeat;
-      min-height: 100vh;
-    }
+body {
+  margin: 0;
+  font-family: 'NotoKufiArabic', Arial, sans-serif;
+  color: white;
+  background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.92)),
+    url('fitness_bg.jpg') center/cover fixed no-repeat;
+  min-height: 100vh;
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(244,231,51,.25), transparent 25%),
-        radial-gradient(circle at 85% 70%, rgba(244,231,51,.18), transparent 28%);
-      pointer-events: none;
-      z-index: -1;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 35%, rgba(255,213,0,.18), transparent 22%),
+    radial-gradient(circle at 90% 80%, rgba(255,213,0,.20), transparent 25%),
+    linear-gradient(135deg, transparent 65%, rgba(255,213,0,.22));
+  z-index: -1;
+}
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-    header {
-      background: rgba(10,10,10,.92);
-      border-bottom: 3px solid #f4e733;
-      padding: 18px 35px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+header {
+  height: 135px;
+  background: rgba(7,10,10,.96);
+  border-bottom: 3px solid #ffd400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 55px;
+}
 
-    .logos {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-    }
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
 
-    .logo {
-      height: 75px;
-      object-fit: contain;
-    }
+.logo {
+  height: 82px;
+  object-fit: contain;
+}
 
-    .divider {
-      width: 2px;
-      height: 65px;
-      background: #f4e733;
-    }
+.divider {
+  width: 2px;
+  height: 75px;
+  background: #fff;
+  opacity: .8;
+}
 
-    .club-title {
-      text-align: left;
-    }
+.club-title {
+  text-align: left;
+}
 
-    .club-title h3 {
-      margin: 0;
-      font-size: 25px;
-      color: #fff;
-    }
+.club-title h3 {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 900;
+}
 
-    .club-title p {
-      margin: 5px 0 0;
-      color: #f4e733;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+.club-title p {
+  margin: 6px 0 0;
+  color: #ffd400;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
 
-    .hero {
-      text-align: center;
-      padding: 45px 20px 20px;
-    }
+.hero {
+  text-align: center;
+  padding: 55px 20px 20px;
+}
 
-    .hero h1 {
-      margin: 0;
-      font-size: 54px;
-      line-height: 1.3;
-      font-weight: 900;
-    }
+.hero h1 {
+  margin: 0;
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.35;
+  text-shadow: 0 4px 18px #000;
+}
 
-    .hero h1 span {
-      color: #f4e733;
-      display: block;
-      font-size: 64px;
-    }
+.hero h1 span {
+  display: block;
+  color: #ffd400;
+  font-size: 68px;
+}
 
-    .hero p {
-      font-size: 20px;
-      margin: 12px 0 25px;
-      color: #eee;
-      font-weight: bold;
-    }
+.hero-line {
+  width: 420px;
+  max-width: 80%;
+  height: 3px;
+  background: #ffd400;
+  margin: 18px auto;
+}
 
-    .features {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
+.hero p {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 800;
+}
 
-    .feature {
-      min-width: 130px;
-      padding: 15px 18px;
-      border-left: 1px solid rgba(244,231,51,.7);
-      border-right: 1px solid rgba(244,231,51,.7);
-      color: #fff;
-      font-size: 14px;
-      font-weight: bold;
-    }
+.features {
+  margin: 35px auto 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
 
-    .feature .icon {
-      display: block;
-      color: #f4e733;
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
+.feature {
+  width: 150px;
+  padding: 5px 18px;
+  border-left: 1px solid rgba(255,212,0,.65);
+  font-weight: 800;
+  font-size: 14px;
+}
 
-    main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-    }
+.feature:first-child {
+  border-right: 1px solid rgba(255,212,0,.65);
+}
 
-    .container {
-      width: 100%;
-      max-width: 720px;
-      background: rgba(5, 8, 9, 0.88);
-      border: 3px solid #f4e733;
-      border-radius: 22px;
-      padding: 35px;
-      box-shadow: 0 0 35px rgba(0,0,0,.75);
-      backdrop-filter: blur(4px);
-    }
+.feature-icon {
+  display: block;
+  color: #ffd400;
+  font-size: 34px;
+  margin-bottom: 8px;
+}
 
-    h2 {
-      margin: 0 0 12px;
-      text-align: center;
-      font-size: 34px;
-      color: white;
-    }
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px 45px;
+}
 
-    h2 span {
-      color: #f4e733;
-    }
+.container {
+  width: 100%;
+  max-width: 720px;
+  background: rgba(8, 11, 12, .90);
+  border: 3px solid #ffd400;
+  border-radius: 22px;
+  padding: 36px;
+  box-shadow: 0 0 45px rgba(0,0,0,.85);
+  backdrop-filter: blur(5px);
+}
 
-    .subtitle {
-      text-align: center;
-      color: #f4e733;
-      margin-bottom: 30px;
-      font-size: 15px;
-    }
+.form-title {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
 
-    label {
-      display: block;
-      margin-top: 18px;
-      font-weight: bold;
-      font-size: 16px;
-    }
+.form-title span {
+  color: #ffd400;
+}
 
-    input {
-      width: 100%;
-      padding: 15px;
-      margin-top: 8px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.25);
-      background: rgba(0,0,0,.55);
-      color: white;
-      font-size: 16px;
-      outline: none;
-    }
+.small-line {
+  width: 260px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffd400, transparent);
+  margin: 15px auto 30px;
+}
 
-    input:focus {
-      border-color: #f4e733;
-      box-shadow: 0 0 10px rgba(244,231,51,.35);
-    }
+label {
+  display: block;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 900;
+}
 
-    input::placeholder {
-      color: #999;
-    }
+.label-icon {
+  color: #ffd400;
+  margin-left: 6px;
+}
 
-    .checkbox-box {
-      margin-top: 24px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(244,231,51,.8);
-      border-radius: 12px;
-      padding: 18px;
-      line-height: 2;
-    }
+input {
+  width: 100%;
+  margin-top: 9px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.28);
+  background: rgba(0,0,0,.55);
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
 
-    .checkbox-box label {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin: 0;
-      font-weight: normal;
-    }
+input:focus {
+  border-color: #ffd400;
+  box-shadow: 0 0 14px rgba(255,212,0,.35);
+}
 
-    .checkbox-box input {
-      width: 22px;
-      height: 22px;
-      margin-top: 8px;
-      accent-color: #f4e733;
-    }
+input::placeholder {
+  color: #929292;
+}
 
-    button {
-      width: 100%;
-      margin-top: 28px;
-      padding: 16px;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(90deg, #f4e733, #ffcc00);
-      color: black;
-      font-size: 25px;
-      font-weight: 900;
-      cursor: pointer;
-      transition: .2s;
-    }
+.checkbox-box {
+  margin-top: 25px;
+  padding: 20px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,212,0,.75);
+  border-radius: 12px;
+}
 
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(244,231,51,.35);
-    }
+.checkbox-box label {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  line-height: 2;
+  font-weight: 700;
+}
 
-    button:disabled {
-      opacity: .6;
-      cursor: not-allowed;
-      transform: none;
-    }
+.checkbox-box input {
+  width: 24px;
+  height: 24px;
+  margin-top: 9px;
+  accent-color: #ffd400;
+}
 
-    #statusMessage {
-      display: none;
-      text-align: center;
-      margin-top: 22px;
-      padding: 14px;
-      border: 1px solid rgba(244,231,51,.7);
-      border-radius: 10px;
-      font-weight: bold;
-      color: #f4e733;
-      background: rgba(0,0,0,.45);
-    }
+button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 17px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ffd400, #ffbf00);
+  color: black;
+  font-size: 27px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: .2s;
+}
 
-    footer {
-      background: rgba(10,10,10,.92);
-      border-top: 3px solid #f4e733;
-      text-align: center;
-      padding: 18px;
-      font-size: 14px;
-      color: #ddd;
-    }
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255,212,0,.35);
+}
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-      }
+button:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+  transform: none;
+}
 
-      .club-title {
-        text-align: center;
-      }
+#statusMessage {
+  display: none;
+  margin-top: 24px;
+  padding: 16px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid rgba(255,212,0,.75);
+  background: rgba(0,0,0,.45);
+  color: #ffd400;
+  font-weight: 900;
+}
 
-      .logo {
-        height: 55px;
-      }
+footer {
+  background: rgba(7,10,10,.96);
+  border-top: 3px solid #ffd400;
+  text-align: center;
+  padding: 18px;
+  color: #ddd;
+  font-size: 14px;
+}
 
-      .hero h1 {
-        font-size: 34px;
-      }
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    flex-direction: column;
+    gap: 15px;
+    padding: 18px;
+  }
 
-      .hero h1 span {
-        font-size: 42px;
-      }
+  .club-title {
+    text-align: center;
+  }
 
-      .hero p {
-        font-size: 15px;
-      }
+  .club-title h3 {
+    font-size: 20px;
+  }
 
-      .container {
-        padding: 24px;
-      }
+  .logo {
+    height: 58px;
+  }
 
-      h2 {
-        font-size: 25px;
-      }
-    }
-  </style>
+  .divider {
+    height: 55px;
+  }
+
+  .hero {
+    padding-top: 35px;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .hero h1 span {
+    font-size: 45px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .feature {
+    width: 50%;
+    margin-bottom: 18px;
+    border: none;
+  }
+
+  .container {
+    padding: 25px;
+  }
+
+  .form-title {
+    font-size: 26px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -329,46 +364,49 @@
     خلك جاهز ...
     <span>لياقة ومستقبل</span>
   </h1>
+
+  <div class="hero-line"></div>
+
   <p>مبادرة مجتمعية لخريجي الثانوية العامة وشباب مدينة كلباء</p>
 
   <div class="features">
     <div class="feature">
-      <span class="icon">🏃</span>
-      لياقة بدنية<br>وصحة عامة
+      <span class="feature-icon">🏆</span>
+      مستقبل<br>أكثر جاهزية
     </div>
     <div class="feature">
-      <span class="icon">🎯</span>
-      تعزيز الثقة<br>والانضباط
-    </div>
-    <div class="feature">
-      <span class="icon">🤝</span>
+      <span class="feature-icon">👥</span>
       تنمية المهارات<br>والعمل الجماعي
     </div>
     <div class="feature">
-      <span class="icon">🏆</span>
-      مستقبل<br>أكثر جاهزية
+      <span class="feature-icon">🎯</span>
+      تعزيز الثقة<br>والانضباط
+    </div>
+    <div class="feature">
+      <span class="feature-icon">💛</span>
+      لياقة بدنية<br>وصحة عامة
     </div>
   </div>
 </section>
 
 <main>
   <div class="container">
-    <h2>التسجيل في مبادرة <span>خلك جاهز</span></h2>
-    <div class="subtitle">يرجى تعبئة البيانات التالية بدقة</div>
+    <div class="form-title">التسجيل في مبادرة <span>خلك جاهز</span> 🏃</div>
+    <div class="small-line"></div>
 
     <form id="fitnessForm">
       <label>
-        الاسم الكامل ثلاثي:
+        <span class="label-icon">👤</span> الاسم الكامل ثلاثي:
         <input type="text" id="name" required placeholder="الاسم الأول الاسم الأوسط اسم العائلة" autocomplete="off">
       </label>
 
       <label>
-        العمر:
+        <span class="label-icon">📅</span> العمر:
         <input type="number" id="age" required min="15" max="60" placeholder="أدخل عمرك" autocomplete="off">
       </label>
 
       <label>
-        رقم الهوية الإماراتية:
+        <span class="label-icon">🪪</span> رقم الهوية الإماراتية:
         <input type="text" id="emiratesId" required maxlength="15" placeholder="784xxxxxxxxxxxx" autocomplete="off">
       </label>
 
@@ -386,7 +424,7 @@
       <button type="submit" id="submitBtn">🏃 تسجيل</button>
     </form>
 
-    <div id="statusMessage"></div>
+    <div id="statusMessage">سيتم عرض رسالة الحالة هنا</div>
   </div>
 </main>
 
@@ -397,84 +435,84 @@
 </div>
 
 <script>
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0jkfUWN5uy_ayR47QpE0VhqW_K9yoL7Jt9MHMUBgwJX7_Tm4WWfOfbsvCFKCnXa_p/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0jkfUWN5uy_ayR47QpE0VhqW_K9yoL7Jt9MHMUBgwJX7_Tm4WWfOfbsvCFKCnXa_p/exec";
 
-  document.getElementById("fitnessForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
+document.getElementById("fitnessForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-    let name = document.getElementById("name").value.trim().replace(/\s+/g, " ");
-    const age = document.getElementById("age").value.trim();
-    const emiratesId = document.getElementById("emiratesId").value.replace(/\D/g, "").trim();
-    const commitment = document.getElementById("fitnessCommitment").checked;
+  let name = document.getElementById("name").value.trim().replace(/\s+/g, " ");
+  const age = document.getElementById("age").value.trim();
+  const emiratesId = document.getElementById("emiratesId").value.replace(/\D/g, "").trim();
+  const commitment = document.getElementById("fitnessCommitment").checked;
 
-    document.getElementById("name").value = name;
+  document.getElementById("name").value = name;
 
-    const nameParts = name.split(" ");
+  const nameParts = name.split(" ");
 
-    if (nameParts.length < 3) {
-      alert("الرجاء إدخال الاسم الثلاثي على الأقل.");
-      return;
-    }
+  if (nameParts.length < 3) {
+    alert("الرجاء إدخال الاسم الثلاثي على الأقل.");
+    return;
+  }
 
-    const arabicNameRegex = /^[ء-ي\s]+$/;
+  const arabicNameRegex = /^[ء-ي\s]+$/;
 
-    if (!arabicNameRegex.test(name)) {
-      alert("الاسم يجب أن يكون باللغة العربية فقط وبدون أرقام أو رموز.");
-      return;
-    }
+  if (!arabicNameRegex.test(name)) {
+    alert("الاسم يجب أن يكون باللغة العربية فقط وبدون أرقام أو رموز.");
+    return;
+  }
 
-    const statusMessage = document.getElementById("statusMessage");
-    const submitBtn = document.getElementById("submitBtn");
+  if (!/^784\d{12}$/.test(emiratesId)) {
+    alert("رقم الهوية غير صحيح. يجب أن يبدأ بـ 784 ويتكون من 15 رقمًا.");
+    return;
+  }
 
-    if (!/^784\d{12}$/.test(emiratesId)) {
-      alert("رقم الهوية غير صحيح. يجب أن يبدأ بـ 784 ويتكون من 15 رقمًا.");
-      return;
-    }
+  if (!commitment) {
+    alert("يجب الموافقة على تعهد اللياقة البدنية قبل التسجيل.");
+    return;
+  }
 
-    if (!commitment) {
-      alert("يجب الموافقة على تعهد اللياقة البدنية قبل التسجيل.");
-      return;
-    }
+  const statusMessage = document.getElementById("statusMessage");
+  const submitBtn = document.getElementById("submitBtn");
 
-    submitBtn.disabled = true;
-    submitBtn.innerText = "جاري التسجيل...";
+  submitBtn.disabled = true;
+  submitBtn.innerText = "جاري التسجيل...";
 
-    try {
-      const response = await fetch(SCRIPT_URL, {
-        method: "POST",
-        body: new URLSearchParams({
-          name: name,
-          age: age,
-          emiratesId: emiratesId,
-          fitnessCommitment: commitment ? "نعم" : "لا"
-        })
-      });
+  try {
+    const response = await fetch(SCRIPT_URL, {
+      method: "POST",
+      body: new URLSearchParams({
+        name: name,
+        age: age,
+        emiratesId: emiratesId,
+        fitnessCommitment: commitment ? "نعم" : "لا"
+      })
+    });
 
-      const result = await response.text();
+    const result = await response.text();
 
-      if (result.includes("duplicate")) {
-        statusMessage.style.display = "block";
-        statusMessage.style.color = "red";
-        statusMessage.innerText = "❌ هذا الرقم مسجل مسبقاً.";
-      } else if (result.includes("success")) {
-        statusMessage.style.display = "block";
-        statusMessage.style.color = "#f4e733";
-        statusMessage.innerText = "✅ تم التسجيل بنجاح.";
-        document.getElementById("fitnessForm").reset();
-      } else {
-        throw new Error(result);
-      }
+    statusMessage.style.display = "block";
 
-    } catch (error) {
-      console.error(error);
-      statusMessage.style.display = "block";
+    if (result.includes("duplicate")) {
       statusMessage.style.color = "red";
-      statusMessage.innerText = "❌ حدث خطأ أثناء التسجيل.";
+      statusMessage.innerText = "❌ هذا الرقم مسجل مسبقاً.";
+    } else if (result.includes("success")) {
+      statusMessage.style.color = "#ffd400";
+      statusMessage.innerText = "✅ تم التسجيل بنجاح.";
+      document.getElementById("fitnessForm").reset();
+    } else {
+      throw new Error(result);
     }
 
-    submitBtn.disabled = false;
-    submitBtn.innerText = "🏃 تسجيل";
-  });
+  } catch (error) {
+    console.error(error);
+    statusMessage.style.display = "block";
+    statusMessage.style.color = "red";
+    statusMessage.innerText = "❌ حدث خطأ أثناء التسجيل.";
+  }
+
+  submitBtn.disabled = false;
+  submitBtn.innerText = "🏃 تسجيل";
+});
 </script>
 
 </body>
